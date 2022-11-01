@@ -4,12 +4,12 @@ echo $(blueutil -p) > ~/.bluestatus
 bluestatus=$(head -n 1 ~/.bluestatus)
 
 if [[ "$bluestatus" != "0" ]]; then
-    blueutil -p 0
+    /usr/local/bin/blueutil -p 0
 fi
 
 if [[ $(networksetup -getairportpower en0) =~ "On" ]]; then
 	echo 1 > ~/.wifistatus
-	networksetup -setairportpower airport off
+	networksetup -setairportpower en0 off
 else
 	echo 0 > ~/.wifistatus
 fi
