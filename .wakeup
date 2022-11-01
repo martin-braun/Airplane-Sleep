@@ -4,9 +4,9 @@ bluestatus=$(head -n 1 ~/.bluestatus)
 wifistatus=$(head -n 1 ~/.wifistatus)
 
 if [[ "$bluestatus" != "0" ]]; then
-    blueutil -p 1
+    /usr/local/bin/blueutil -p 1
 fi
 
 if [[ "$wifistatus" != "0" ]]; then
-    networksetup -setairportpower airport on
+    networksetup -setairportpower en0 on
 fi
